@@ -1,11 +1,6 @@
-if (__DEV__) {
-  import('./src/config/reactotronConfig').then(() => {
-    // eslint-disable-next-line no-console
-    console.log('Reactotron Configured');
-  });
-}
 import React from 'react';
 
+import './src/config/reactotronConfig';
 import App from './src/app';
 
 export default function index() {
