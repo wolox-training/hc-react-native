@@ -1,7 +1,7 @@
 import React from 'react';
+import { View } from 'react-native';
 import SingleBook from '@components/SingleBook';
 import { BOOKS_MOCK } from '@constants/mockBooks';
-import { View } from 'react-native';
 
 import styles from './styles';
 

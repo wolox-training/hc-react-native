@@ -9,8 +9,8 @@
  */
 
 import React from 'react';
-import Library from '@screens/Library';
 import { SafeAreaView, StatusBar } from 'react-native';
+import Library from '@screens/Library';
 
 import styles from './styles';
 
