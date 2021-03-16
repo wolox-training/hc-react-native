@@ -1,18 +1,21 @@
 import React from 'react';
-import { View } from 'react-native';
+import { FlatList, ListRenderItem, View } from 'react-native';
 import SingleBook from '@components/SingleBook';
 import { BOOKS_MOCK } from '@constants/mockBooks';
+import { Book } from '@interfaces/books';
+import { trimLineBreaks } from '@utils/stringUtils';
 
 import styles from './styles';
 
 function Library() {
+  const renderBooks: ListRenderItem<Book> = ({ item }) => (
+    <SingleBook bookCover={item.imageUrl} bookTitle={trimLineBreaks(item.title)} bookAuthor={item.author} />
+  );
+  const keyExtractor = (item: Book) => item.id.toString();
+
   return (
     <View style={styles.container}>
-      <SingleBook
-        bookCover={BOOKS_MOCK[0].imageUrl}
-        bookTitle={BOOKS_MOCK[0].title}
-        bookAuthor={BOOKS_MOCK[0].author}
-      />
+      <FlatList data={BOOKS_MOCK} renderItem={renderBooks} keyExtractor={keyExtractor} />
     </View>
   );
 }
