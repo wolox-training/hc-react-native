@@ -10,9 +10,19 @@
 
 import React from 'react';
 import Library from '@screens/Library';
+import { SafeAreaView, StatusBar } from 'react-native';
+
+import styles from './styles';
 
 const App = () => {
-  return <Library />;
+  return (
+    <>
+      <StatusBar barStyle="dark-content" />
+      <SafeAreaView style={styles.safeAreaView}>
+        <Library />
+      </SafeAreaView>
+    </>
+  );
 };
 
 export default App;

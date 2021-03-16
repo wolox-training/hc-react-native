@@ -1,18 +1,19 @@
 import React from 'react';
-import SingleBook from '@app/components/SingleBook';
+import SingleBook from '@components/SingleBook';
 import { BOOKS_MOCK } from '@constants/mockBooks';
+import { View } from 'react-native';
 
-import LibraryWrapper from './LibraryWrapper';
+import styles from './styles';
 
 function Library() {
   return (
-    <LibraryWrapper>
+    <View style={styles.container}>
       <SingleBook
-        bookCover={BOOKS_MOCK[2].imageUrl}
-        bookTitle={BOOKS_MOCK[2].title}
-        bookAuthor={BOOKS_MOCK[2].author}
+        bookCover={BOOKS_MOCK[0].imageUrl}
+        bookTitle={BOOKS_MOCK[0].title}
+        bookAuthor={BOOKS_MOCK[0].author}
       />
-    </LibraryWrapper>
+    </View>
   );
 }
 
