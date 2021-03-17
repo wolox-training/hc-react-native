@@ -8,12 +8,12 @@ interface Props {
   bookCover: string | null;
   bookTitle: string;
   bookAuthor: string;
-  onPressProp: () => void;
+  onPressBook: () => void;
 }
 
-function SingleBook({ bookCover, bookTitle, bookAuthor, onPressProp }: Props) {
+function SingleBook({ bookCover, bookTitle, bookAuthor, onPressBook }: Props) {
   return (
-    <TouchableOpacity style={styles.container} onPress={onPressProp} activeOpacity={0.8}>
+    <TouchableOpacity style={styles.container} onPress={onPressBook} activeOpacity={0.8}>
       <Image
         style={styles.bookCover}
         resizeMode="contain"

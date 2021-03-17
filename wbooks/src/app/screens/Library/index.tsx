@@ -1,7 +1,6 @@
 import React from 'react';
-import { FlatList, ListRenderItem } from 'react-native';
+import { FlatList, ListRenderItem, SafeAreaView } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import ScreenWrapper from '@components/ScreenWrapper';
 import SingleBook from '@components/SingleBook';
 import { BOOKS_MOCK } from '@constants/mockBooks';
 import SCREENS, { LibraryType } from '@constants/screens';
@@ -21,20 +20,20 @@ function Library({ navigation }: Props) {
       bookCover={item.imageUrl}
       bookTitle={trimLineBreaks(item.title)}
       bookAuthor={item.author}
-      onPressProp={() => navigation.navigate(SCREENS.BOOK_DETAILS)}
+      onPressBook={() => navigation.navigate(SCREENS.BOOK_DETAILS)}
     />
   );
   const keyExtractor = ({ id }: Book) => String(id);
 
   return (
-    <ScreenWrapper>
+    <SafeAreaView style={styles.container}>
       <FlatList
         style={styles.container}
         data={BOOKS_MOCK}
         renderItem={renderBooks}
         keyExtractor={keyExtractor}
       />
-    </ScreenWrapper>
+    </SafeAreaView>
   );
 }
 
