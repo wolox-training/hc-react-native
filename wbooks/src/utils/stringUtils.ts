@@ -9,3 +9,5 @@ export const getInitials = (str?: string) =>
 
 export const keepNumbers = (str?: string | number) =>
   (str || EMPTY_STRING).toString().replace(/\D/g, EMPTY_STRING);
+
+export const trimLineBreaks = (str: string) => str.replace(/\n/g, EMPTY_STRING);
