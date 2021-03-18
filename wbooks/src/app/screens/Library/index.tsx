@@ -15,12 +15,13 @@ interface Props {
 }
 
 function Library({ navigation }: Props) {
-  const renderBooks: ListRenderItem<Book> = ({ item }) => (
+  const renderBooks: ListRenderItem<Book> = ({ item, index }) => (
     <SingleBook
       bookCover={item.imageUrl}
       bookTitle={trimLineBreaks(item.title)}
       bookAuthor={item.author}
       onPressBook={() => navigation.navigate(SCREENS.BOOK_DETAILS)}
+      style={index === 0 ? styles.firstItem : {}}
     />
   );
   const keyExtractor = ({ id }: Book) => String(id);

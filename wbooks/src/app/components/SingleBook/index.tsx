@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { Image, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
 import placeholderImage from '@assets/img_book_placeholder.png';
 
 import styles from './styles';
@@ -9,11 +9,12 @@ interface Props {
   bookTitle: string;
   bookAuthor: string;
   onPressBook: () => void;
+  style?: ViewStyle;
 }
 
-function SingleBook({ bookCover, bookTitle, bookAuthor, onPressBook }: Props) {
+function SingleBook({ bookCover, bookTitle, bookAuthor, onPressBook, style }: Props) {
   return (
-    <TouchableOpacity style={styles.container} onPress={onPressBook} activeOpacity={0.8}>
+    <TouchableOpacity style={[styles.container, style]} onPress={onPressBook} activeOpacity={0.8}>
       <Image
         style={styles.bookCover}
         resizeMode="contain"

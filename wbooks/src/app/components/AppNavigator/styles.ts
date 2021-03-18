@@ -2,11 +2,12 @@ import { StyleSheet } from 'react-native';
 import colors from '@constants/colors';
 
 export default StyleSheet.create({
-  container: {
+  headerImage: {
     backgroundColor: colors.polar,
-    flex: 1
+    flex: 1,
+    width: '100%'
   },
-  firstItem: {
-    marginTop: 17
+  backButton: {
+    flex: 1
   }
 });
