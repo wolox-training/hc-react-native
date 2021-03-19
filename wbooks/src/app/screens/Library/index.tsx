@@ -3,15 +3,15 @@ import { FlatList, ListRenderItem, SafeAreaView } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import SingleBook from '@components/SingleBook';
 import { BOOKS_MOCK } from '@constants/mockBooks';
-import SCREENS, { LibraryType } from '@constants/screens';
+import SCREENS, { HomeType } from '@constants/screens';
 import { Book } from '@interfaces/books';
-import { RootStackParamList } from '@interfaces/rootStackParamList';
+import { RootStackParamList } from '@interfaces/navigatorParamLists';
 import { trimLineBreaks } from '@utils/stringUtils';
 
 import styles from './styles';
 
 interface Props {
-  navigation: StackNavigationProp<RootStackParamList, LibraryType>;
+  navigation: StackNavigationProp<RootStackParamList, HomeType>;
 }
 
 function Library({ navigation }: Props) {

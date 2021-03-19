@@ -1,14 +1,20 @@
-export type LibraryType = 'Library';
 export type BookDetailType = 'BookDetails';
+export type HomeType = 'Home';
+export type LibraryType = 'Library';
+export type WishListType = 'Wishlist';
 
 interface Screens {
-  LIBRARY: LibraryType;
   BOOK_DETAILS: BookDetailType;
+  HOME: HomeType;
+  LIBRARY: LibraryType;
+  WISHLIST: WishListType;
 }
 
 const SCREENS: Screens = {
+  BOOK_DETAILS: 'BookDetails',
+  HOME: 'Home',
   LIBRARY: 'Library',
-  BOOK_DETAILS: 'BookDetails'
+  WISHLIST: 'Wishlist'
 };
 
 export default SCREENS;

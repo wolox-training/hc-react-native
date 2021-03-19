@@ -1,8 +1,8 @@
 import React from 'react';
-import { View } from 'react-native';
+import EmptyView from '@screens/EmptyView';
 
 function BookDetails() {
-  return <View />;
+  return <EmptyView />;
 }
 
 export default BookDetails;
