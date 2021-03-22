@@ -10,16 +10,20 @@
 
 import 'react-native-gesture-handler';
 import React from 'react';
+import { Provider as ReduxProvider } from 'react-redux';
 import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import AppNavigator from '@components/AppNavigator';
+import store from '@redux/store';
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <StatusBar barStyle="dark-content" />
-      <AppNavigator />
-    </NavigationContainer>
+    <ReduxProvider store={store}>
+      <NavigationContainer>
+        <StatusBar barStyle="dark-content" />
+        <AppNavigator />
+      </NavigationContainer>
+    </ReduxProvider>
   );
 };
 
