@@ -1,9 +1,9 @@
 export type RootStackParamList = {
   BookDetails: undefined;
-  Home: undefined;
+  Library: undefined;
 };
 
-export type bottomTabParamList = {
+export type BottomTabParamList = {
   Library: undefined;
   Wishlist: undefined;
 };

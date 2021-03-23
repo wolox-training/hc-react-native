@@ -3,10 +3,11 @@ import { FlatList, ListRenderItem, SafeAreaView } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { useDispatch, useSelector } from 'react-redux';
 import SingleBook from '@components/SingleBook';
-import SCREENS, { HomeType } from '@constants/screens';
+import SCREENS from '@constants/screens';
 import { Book } from '@interfaces/books';
 import { BookState } from '@interfaces/bookState';
 import { RootState } from '@interfaces/rootState';
+import { LibraryType } from '@interfaces/screens';
 import { RootStackParamList } from '@interfaces/navigatorParamLists';
 import actionCreators from '@redux/book/actions';
 import { trimLineBreaks } from '@utils/stringUtils';
@@ -14,7 +15,7 @@ import { trimLineBreaks } from '@utils/stringUtils';
 import styles from './styles';
 
 interface Props {
-  navigation: StackNavigationProp<RootStackParamList, HomeType>;
+  navigation: StackNavigationProp<RootStackParamList, LibraryType>;
 }
 
 function Library({ navigation }: Props) {

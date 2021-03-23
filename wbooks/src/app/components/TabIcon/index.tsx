@@ -1,14 +1,18 @@
 import React from 'react';
-import { Image, ImageProps } from 'react-native';
+import { Image } from 'react-native';
+import { useRoute } from '@react-navigation/core';
+
+import TAB_ICONS from './constants';
 
 interface Props {
-  active: ImageProps;
-  inactive: ImageProps;
   focused: boolean;
 }
 
-const TabIcon = ({ active, inactive, focused }: Props) => {
-  return <Image resizeMode="contain" source={focused ? active : inactive} />;
-};
+function TabIcon({ focused }: Props) {
+  const route = useRoute();
+  const source = focused ? TAB_ICONS[route.name].inactive : TAB_ICONS[route.name].active;
+
+  return <Image resizeMode="contain" source={source} />;
+}
 
 export default TabIcon;

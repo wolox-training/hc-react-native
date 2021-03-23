@@ -1,8 +1,8 @@
 import { getFocusedRouteNameFromRoute, RouteProp } from '@react-navigation/native';
-import { HomeType } from '@constants/screens';
+import { LibraryType } from '@interfaces/screens';
 import { RootStackParamList } from '@interfaces/navigatorParamLists';
 
-function getHeaderTitle(route: RouteProp<RootStackParamList, HomeType>): string {
+function getHeaderTitle(route: RouteProp<RootStackParamList, LibraryType>): string {
   const routeName = getFocusedRouteNameFromRoute(route) ?? 'Library';
 
   switch (routeName) {
