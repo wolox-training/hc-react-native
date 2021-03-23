@@ -1,18 +1,13 @@
-export type BookDetailType = 'BookDetails';
-export type HomeType = 'Home';
-export type LibraryType = 'Library';
-export type WishListType = 'Wishlist';
-
-interface Screens {
-  BOOK_DETAILS: BookDetailType;
-  HOME: HomeType;
-  LIBRARY: LibraryType;
-  WISHLIST: WishListType;
-}
+import { Screens } from '@interfaces/screens';
 
 const SCREENS: Screens = {
   BOOK_DETAILS: 'BookDetails',
-  HOME: 'Home',
+  LIBRARY: 'Library',
+  WISHLIST: 'Wishlist'
+};
+
+export const SCREEN_TITLES = {
+  BOOK_DETAILS: 'Book Detail',
   LIBRARY: 'Library',
   WISHLIST: 'Wishlist'
 };
