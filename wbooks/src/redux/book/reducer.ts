@@ -1,15 +1,21 @@
 import { AnyAction } from 'redux';
-import { BOOKS_MOCK } from '@constants/mockBooks';
-import { Book } from '@interfaces/books';
+import { BookState } from '@interfaces/bookState';
 
 import { actions } from './actions';
 
-const initialState: Book[] = BOOKS_MOCK;
+const initialState: BookState = {
+  books: [],
+  error: ''
+};
 
 function booksReducer(state = initialState, action: AnyAction) {
   switch (action.type) {
     case actions.GET_BOOKS:
-      return action.books;
+      return state;
+    case actions.GET_BOOKS_SUCCESS:
+      return { ...state, books: action.payload };
+    case actions.GET_BOOKS_FAILURE:
+      return { ...state, error: action.payload };
     default:
       return state;
   }

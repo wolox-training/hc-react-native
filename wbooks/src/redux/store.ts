@@ -4,11 +4,9 @@ import Reactotron from '@config/reactotronConfig';
 
 import booksReducer from './book/reducer';
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
   books: booksReducer
 });
-
-export type RootState = ReturnType<typeof rootReducer>;
 
 const middlewares = [applyMiddleware(thunk)];
 

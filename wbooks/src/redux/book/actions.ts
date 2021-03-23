@@ -1,18 +1,21 @@
-import { Book } from '@interfaces/books';
+import { Dispatch } from 'redux';
+import { BOOKS_MOCK } from '@constants/mockBooks';
 
-interface ActionTypes {
-  GET_BOOKS: '@@BOOKS/GET_BOOKS';
+export enum actions {
+  GET_BOOKS = '@@BOOKS/GET_BOOKS',
+  GET_BOOKS_SUCCESS = '@@BOOKS/GET_BOOKS_SUCCESS',
+  GET_BOOKS_FAILURE = '@@BOOKS/GET_BOOKS_FAILURE'
 }
-
-export const actions: ActionTypes = {
-  GET_BOOKS: '@@BOOKS/GET_BOOKS'
+const actionCreators = {
+  getBooks: () => (dispatch: Dispatch) => {
+    dispatch({ type: actions.GET_BOOKS });
+    const response = { ok: true, data: BOOKS_MOCK, problem: 'Something went wrong' };
+    if (response.ok) {
+      dispatch({ type: actions.GET_BOOKS_SUCCESS, payload: response.data });
+    } else {
+      dispatch({ type: actions.GET_BOOKS_FAILURE, payload: response.problem });
+    }
+  }
 };
 
-function getBooks(books: Book[]) {
-  return {
-    type: actions.GET_BOOKS,
-    books
-  };
-}
-
-export default getBooks;
+export default actionCreators;
