@@ -1,8 +1,8 @@
 import React from 'react';
 import { View } from 'react-native';
 
-function EmptyView() {
+function Wishlist() {
   return <View />;
 }
 
-export default EmptyView;
+export default Wishlist;
