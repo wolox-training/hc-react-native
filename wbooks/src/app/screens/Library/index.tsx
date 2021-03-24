@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FlatList, ListRenderItem, SafeAreaView } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,11 +20,11 @@ interface Props {
 
 function Library({ navigation }: Props) {
   const dispatch = useDispatch();
-  const { books, error } = useSelector<RootState, BookState>(state => state.books);
+  const { books } = useSelector<RootState, BookState>(state => state.books);
 
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch(actionCreators.getBooks());
-  }, [dispatch, books, error]);
+  }, [dispatch]);
 
   const renderBooks: ListRenderItem<Book> = ({ item, index }) => (
     <SingleBook

@@ -5,17 +5,18 @@ import { actions } from './actions';
 
 const initialState: BookState = {
   books: [],
-  error: ''
+  error: '',
+  loading: false
 };
 
 function booksReducer(state = initialState, action: AnyAction) {
   switch (action.type) {
     case actions.GET_BOOKS:
-      return state;
+      return { ...state, loading: true };
     case actions.GET_BOOKS_SUCCESS:
-      return { ...state, books: action.payload };
+      return { ...state, books: action.payload, loading: false };
     case actions.GET_BOOKS_FAILURE:
-      return { ...state, error: action.payload };
+      return { ...state, error: action.payload, loading: false };
     default:
       return state;
   }
