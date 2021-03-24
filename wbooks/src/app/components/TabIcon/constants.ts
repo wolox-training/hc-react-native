@@ -9,8 +9,8 @@ type TabIconType = {
 };
 
 const TAB_ICONS: TabIconType = {
-  Library: { active: libraryIcon, inactive: libraryIconActive },
-  Wishlist: { active: wishlistIcon, inactive: wishlistIconActive }
+  Library: { active: libraryIconActive, inactive: libraryIcon },
+  Wishlist: { active: wishlistIconActive, inactive: wishlistIcon }
 };
 
 export default TAB_ICONS;
