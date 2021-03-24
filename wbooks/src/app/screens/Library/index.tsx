@@ -8,14 +8,14 @@ import { Book } from '@interfaces/books';
 import { BookState } from '@interfaces/bookState';
 import { RootState } from '@interfaces/rootState';
 import { LibraryType } from '@interfaces/screens';
-import { RootStackParamList } from '@interfaces/navigatorParamLists';
+import { LibraryStackParamList } from '@interfaces/navigatorParamLists';
 import actionCreators from '@redux/book/actions';
 import { trimLineBreaks } from '@utils/stringUtils';
 
 import styles from './styles';
 
 interface Props {
-  navigation: StackNavigationProp<RootStackParamList, LibraryType>;
+  navigation: StackNavigationProp<LibraryStackParamList, LibraryType>;
 }
 
 function Library({ navigation }: Props) {

@@ -10,7 +10,7 @@ interface Props {
 
 function TabIcon({ focused }: Props) {
   const route = useRoute();
-  const source = focused ? TAB_ICONS[route.name].inactive : TAB_ICONS[route.name].active;
+  const source = TAB_ICONS[route.name][focused ? 'active' : 'inactive'];
 
   return <Image resizeMode="contain" source={source} />;
 }
