@@ -1,7 +1,7 @@
 import { Book } from '@interfaces/books';
 
 export interface BookServiceMockedResponse {
-  data: Book[];
+  data?: Book[];
   ok: boolean;
-  problem: string;
+  problem?: string;
 }
