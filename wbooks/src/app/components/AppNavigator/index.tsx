@@ -1,39 +1,46 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import backButton from '@assets/ic_back.png';
-import headerBackground from '@assets/bc_nav_bar.png';
+import TabIcon from '@components/TabIcon';
 import colors from '@constants/colors';
-import SCREENS from '@constants/screens';
-import { RootStackParamList } from '@interfaces/rootStackParamList';
+import SCREENS, { SCREEN_TITLES } from '@constants/screens';
+import { BottomTabParamList, LibraryStackParamList } from '@interfaces/navigatorParamLists';
 import BookDetails from '@screens/BookDetails';
 import Library from '@screens/Library';
+import WishList from '@screens/WishList';
 
-import styles from './styles';
+import customHeader from './config';
 
-const Stack = createStackNavigator<RootStackParamList>();
+const TabNavigator = createBottomTabNavigator<BottomTabParamList>();
+const LibraryStackNavigator = createStackNavigator<LibraryStackParamList>();
 
-const AppNavigator = () => {
+function LibraryStackScreen() {
   return (
-    <Stack.Navigator
-      initialRouteName={SCREENS.LIBRARY}
-      screenOptions={{
-        headerStyle: {
-          height: 90
-        },
-        headerTintColor: colors.white,
-        headerBackImage: () => <Image style={styles.backButton} resizeMode="cover" source={backButton} />,
-        headerBackground: () => (
-          <Image style={styles.headerImage} resizeMode="stretch" source={headerBackground} />
-        ),
-        headerTitleStyle: {
-          textTransform: 'uppercase'
-        }
-      }}>
-      <Stack.Screen name={SCREENS.LIBRARY} component={Library} options={{ title: 'Library' }} />
-      <Stack.Screen name={SCREENS.BOOK_DETAILS} component={BookDetails} options={{ title: 'Book Detail' }} />
-    </Stack.Navigator>
+    <LibraryStackNavigator.Navigator screenOptions={customHeader as object}>
+      <LibraryStackNavigator.Screen
+        name={SCREENS.LIBRARY}
+        component={Library}
+        options={{ title: SCREEN_TITLES.LIBRARY }}
+      />
+      <LibraryStackNavigator.Screen
+        name={SCREENS.BOOK_DETAILS}
+        component={BookDetails}
+        options={{ title: SCREEN_TITLES.BOOK_DETAILS }}
+      />
+    </LibraryStackNavigator.Navigator>
   );
-};
+}
+
+function AppNavigator() {
+  return (
+    <TabNavigator.Navigator
+      initialRouteName={SCREENS.LIBRARY}
+      screenOptions={{ tabBarIcon: ({ focused }) => <TabIcon focused={focused} /> }}
+      tabBarOptions={{ activeTintColor: colors.cerulean, inactiveTintColor: colors.dustyGray }}>
+      <TabNavigator.Screen name={SCREENS.LIBRARY} component={LibraryStackScreen} />
+      <TabNavigator.Screen name={SCREENS.WISHLIST} component={WishList} />
+    </TabNavigator.Navigator>
+  );
+}
 
 export default AppNavigator;

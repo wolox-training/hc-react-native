@@ -1,14 +1,15 @@
-export type LibraryType = 'Library';
-export type BookDetailType = 'BookDetails';
-
-interface Screens {
-  LIBRARY: LibraryType;
-  BOOK_DETAILS: BookDetailType;
-}
+import { Screens } from '@interfaces/screens';
 
 const SCREENS: Screens = {
+  BOOK_DETAILS: 'BookDetails',
   LIBRARY: 'Library',
-  BOOK_DETAILS: 'BookDetails'
+  WISHLIST: 'Wishlist'
+};
+
+export const SCREEN_TITLES = {
+  BOOK_DETAILS: 'Book Detail',
+  LIBRARY: 'Library',
+  WISHLIST: 'Wishlist'
 };
 
 export default SCREENS;
