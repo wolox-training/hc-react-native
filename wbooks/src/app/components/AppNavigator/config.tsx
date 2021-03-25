@@ -4,7 +4,7 @@ import backButton from '@assets/ic_back.png';
 import headerBackground from '@assets/bc_nav_bar.png';
 import colors from '@constants/colors';
 
-import styles from '../styles';
+import styles from './styles';
 
 const customHeader = {
   headerStyle: {

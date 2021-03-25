@@ -9,7 +9,7 @@ import BookDetails from '@screens/BookDetails';
 import Library from '@screens/Library';
 import WishList from '@screens/WishList';
 
-import customHeader from './config/customHeader';
+import customHeader from './config';
 
 const TabNavigator = createBottomTabNavigator<BottomTabParamList>();
 const LibraryStackNavigator = createStackNavigator<LibraryStackParamList>();
