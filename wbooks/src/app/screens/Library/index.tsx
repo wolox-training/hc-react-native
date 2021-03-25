@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FlatList, ListRenderItem, SafeAreaView } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { useDispatch, useSelector } from 'react-redux';
 import SingleBook from '@components/SingleBook';
-import { BOOKS_MOCK } from '@constants/mockBooks';
 import SCREENS from '@constants/screens';
 import { Book } from '@interfaces/books';
+import { BookState } from '@interfaces/bookState';
+import { RootState } from '@interfaces/rootState';
 import { LibraryType } from '@interfaces/screens';
 import { LibraryStackParamList } from '@interfaces/navigatorParamLists';
+import actionCreators from '@redux/book/actions';
 import { trimLineBreaks } from '@utils/stringUtils';
 
 import styles from './styles';
@@ -16,6 +19,13 @@ interface Props {
 }
 
 function Library({ navigation }: Props) {
+  const dispatch = useDispatch();
+  const { books } = useSelector<RootState, BookState>(state => state.books);
+
+  useEffect(() => {
+    dispatch(actionCreators.getBooks());
+  }, [dispatch]);
+
   const renderBooks: ListRenderItem<Book> = ({ item, index }) => (
     <SingleBook
       bookCover={item.imageUrl}
@@ -29,12 +39,7 @@ function Library({ navigation }: Props) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <FlatList
-        style={styles.container}
-        data={BOOKS_MOCK}
-        renderItem={renderBooks}
-        keyExtractor={keyExtractor}
-      />
+      <FlatList data={books} renderItem={renderBooks} keyExtractor={keyExtractor} />
     </SafeAreaView>
   );
 }
