@@ -1,7 +1,7 @@
 import { NativeModules } from 'react-native';
 import Reactotron, { trackGlobalErrors, overlay } from 'reactotron-react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import apisaucePlugin from 'reactotron-apisauce';
+import tronsauce from 'reactotron-apisauce';
 import { reactotronRedux } from 'reactotron-redux';
 import Immutable from 'seamless-immutable';
 
@@ -24,7 +24,7 @@ if (__DEV__) {
 
   Reactotron.configure({ name: 'wbooks', host: scriptHostname })
     .use(trackGlobalErrors())
-    .use(apisaucePlugin())
+    .use(tronsauce())
     .use(
       reactotronRedux({
         onRestore: state =>
