@@ -1,3 +1,8 @@
-import { rootReducer } from '@redux/store';
+import { $CombinedState } from 'redux';
+import { BookState } from '@interfaces/bookState';
 
-export type RootState = ReturnType<typeof rootReducer>;
+export type RootState = {
+  readonly [$CombinedState]?: undefined;
+} & {
+  books: BookState;
+};
