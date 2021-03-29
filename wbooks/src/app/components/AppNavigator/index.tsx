@@ -1,6 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
+import SearchBar from '@components/SearchBar';
 import SearchIcon from '@components/SearchIcon';
 import TabIcon from '@components/TabIcon';
 import colors from '@constants/colors';
@@ -8,17 +9,17 @@ import SCREENS, { SCREEN_TITLES } from '@constants/screens';
 import { BottomTabParamList, LibraryStackParamList } from '@interfaces/navigatorParamLists';
 import BookDetails from '@screens/BookDetails';
 import Library from '@screens/Library';
-import Search from '@screens/Search';
+import SearchScreen from '@screens/SearchScreen';
 import WishList from '@screens/WishList';
 
-import customHeader from './config';
+import mainHeader, { searchHeader } from './config';
 
 const TabNavigator = createBottomTabNavigator<BottomTabParamList>();
 const LibraryStackNavigator = createStackNavigator<LibraryStackParamList>();
 
 function LibraryStackScreen() {
   return (
-    <LibraryStackNavigator.Navigator screenOptions={customHeader as object}>
+    <LibraryStackNavigator.Navigator screenOptions={mainHeader as object}>
       <LibraryStackNavigator.Screen
         name={SCREENS.LIBRARY}
         component={Library}
@@ -31,8 +32,8 @@ function LibraryStackScreen() {
       />
       <LibraryStackNavigator.Screen
         name={SCREENS.SEARCH}
-        component={Search}
-        options={{ title: SCREEN_TITLES.SEARCH }}
+        component={SearchScreen}
+        options={{ ...searchHeader, headerTitle: () => <SearchBar /> } as object}
       />
     </LibraryStackNavigator.Navigator>
   );

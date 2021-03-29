@@ -6,16 +6,25 @@ import colors from '@constants/colors';
 
 import styles from './styles';
 
-const customHeader = {
+const sharedHeaderProperties = {
   headerStyle: {
     height: 90
   },
-  headerTintColor: colors.white,
-  headerBackImage: () => <Image style={styles.backButton} resizeMode="cover" source={backButton} />,
   headerBackground: () => <Image style={styles.headerImage} resizeMode="stretch" source={headerBackground} />,
   headerTitleStyle: {
     textTransform: 'uppercase'
   }
 };
 
-export default customHeader;
+const mainHeader = {
+  ...sharedHeaderProperties,
+  headerTintColor: colors.white,
+  headerBackImage: () => <Image style={styles.backButton} resizeMode="cover" source={backButton} />
+};
+
+export const searchHeader = {
+  ...sharedHeaderProperties,
+  headerLeft: () => null
+};
+
+export default mainHeader;
