@@ -4,7 +4,9 @@ import { BookState } from '@interfaces/bookState';
 import { actions } from './actions';
 
 const initialState: BookState = completeState({
-  books: []
+  description: {
+    books: []
+  }
 });
 
 const reducerDescription = {
