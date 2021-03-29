@@ -1,7 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import SearchBar from '@components/SearchBar';
 import SearchIcon from '@components/SearchIcon';
 import TabIcon from '@components/TabIcon';
 import colors from '@constants/colors';
@@ -33,7 +32,7 @@ function LibraryStackScreen() {
       <LibraryStackNavigator.Screen
         name={SCREENS.SEARCH}
         component={SearchScreen}
-        options={{ ...searchHeader, headerTitle: () => <SearchBar /> } as object}
+        options={searchHeader as object}
       />
     </LibraryStackNavigator.Navigator>
   );
