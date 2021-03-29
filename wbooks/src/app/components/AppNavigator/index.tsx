@@ -1,12 +1,14 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
+import SearchIcon from '@components/SearchIcon';
 import TabIcon from '@components/TabIcon';
 import colors from '@constants/colors';
 import SCREENS, { SCREEN_TITLES } from '@constants/screens';
 import { BottomTabParamList, LibraryStackParamList } from '@interfaces/navigatorParamLists';
 import BookDetails from '@screens/BookDetails';
 import Library from '@screens/Library';
+import Search from '@screens/Search';
 import WishList from '@screens/WishList';
 
 import customHeader from './config';
@@ -20,12 +22,17 @@ function LibraryStackScreen() {
       <LibraryStackNavigator.Screen
         name={SCREENS.LIBRARY}
         component={Library}
-        options={{ title: SCREEN_TITLES.LIBRARY }}
+        options={{ title: SCREEN_TITLES.LIBRARY, headerRight: () => <SearchIcon /> }}
       />
       <LibraryStackNavigator.Screen
         name={SCREENS.BOOK_DETAILS}
         component={BookDetails}
         options={{ title: SCREEN_TITLES.BOOK_DETAILS }}
+      />
+      <LibraryStackNavigator.Screen
+        name={SCREENS.SEARCH}
+        component={Search}
+        options={{ title: SCREEN_TITLES.SEARCH }}
       />
     </LibraryStackNavigator.Navigator>
   );
