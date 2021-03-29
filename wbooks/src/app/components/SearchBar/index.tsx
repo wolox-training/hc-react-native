@@ -17,12 +17,12 @@ const SearchBar = () => {
 
   return (
     <View style={styles.container}>
-      <Image resizeMode="contain" style={styles.searchIcon} source={searchPlaceholderIcon} />
+      <Image resizeMode="contain" style={styles.searchIconLeft} source={searchPlaceholderIcon} />
       <TextInput style={styles.input} onChangeText={onSearch} value={searchedBook} />
       <TouchableOpacity onPress={onCleanInput}>
         <Image
           resizeMode="contain"
-          style={[styles.searchIcon, searchedBook.length >= 1 && styles.clearIconActive]}
+          style={[styles.clearIconRight, searchedBook.length >= 1 && styles.clearIconActive]}
           source={closeSearch}
         />
       </TouchableOpacity>

@@ -7,12 +7,18 @@ export default StyleSheet.create({
     backgroundColor: colors.white,
     borderRadius: 14,
     flexDirection: 'row',
-    paddingHorizontal: 8
+    paddingLeft: 8,
+    paddingRight: 16
   },
-  searchIcon: {
+  searchIconLeft: {
     height: 12,
     tintColor: colors.manatee,
     width: 13
+  },
+  clearIconRight: {
+    height: 14,
+    tintColor: colors.manatee,
+    width: 14
   },
   clearIconActive: {
     tintColor: colors.monza
