@@ -1,20 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { SafeAreaView } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
 import BookList from '@components/BookList';
-import { BookState } from '@interfaces/bookState';
-import { RootState } from '@interfaces/rootState';
-import actionCreators from '@redux/book/actions';
+import useBooks from '@hooks/useBooks';
 
 import styles from './styles';
 
 function Library() {
-  const dispatch = useDispatch();
-  const { books } = useSelector<RootState, BookState>(state => state.books);
-
-  useEffect(() => {
-    dispatch(actionCreators.getBooks());
-  }, [dispatch]);
+  const { books } = useBooks();
 
   return (
     <SafeAreaView style={styles.container}>

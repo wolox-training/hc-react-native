@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, ListRenderItem, SafeAreaView } from 'react-native';
+import { FlatList, ListRenderItem } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import ContainedText from '@components/ContainedText';
 import SingleBook from '@components/SingleBook';
@@ -27,14 +27,12 @@ function BookList({ data }: Props) {
   const keyExtractor = ({ id }: Book) => String(id);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <FlatList
-        data={data}
-        renderItem={renderBooks}
-        keyExtractor={keyExtractor}
-        ListEmptyComponent={() => <ContainedText text="No books found" />}
-      />
-    </SafeAreaView>
+    <FlatList
+      data={data}
+      renderItem={renderBooks}
+      keyExtractor={keyExtractor}
+      ListEmptyComponent={() => <ContainedText text="No books found" />}
+    />
   );
 }
 

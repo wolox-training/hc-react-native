@@ -1,6 +1,8 @@
 import { StyleSheet } from 'react-native';
 import colors from '@constants/colors';
 
+const CLEAR_ICON_SIZE = 14;
+
 export default StyleSheet.create({
   container: {
     alignItems: 'center',
@@ -16,9 +18,9 @@ export default StyleSheet.create({
     width: 13
   },
   clearIconRight: {
-    height: 14,
+    height: CLEAR_ICON_SIZE,
     tintColor: colors.manatee,
-    width: 14
+    width: CLEAR_ICON_SIZE
   },
   clearIconActive: {
     tintColor: colors.monza

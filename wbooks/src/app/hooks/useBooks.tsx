@@ -5,7 +5,7 @@ import { BookState } from '@interfaces/bookState';
 import { RootState } from '@interfaces/rootState';
 import actionCreators from '@redux/book/actions';
 
-function useFilteredBooks() {
+function useBooks() {
   const [filteredBooks, setFilteredBooks] = useState<Book[]>([]);
 
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ function useFilteredBooks() {
     setFilteredBooks(books.filter(item => item.title.toLowerCase().includes(searchedBook.toLowerCase())));
   }, [books, searchedBook]);
 
-  return filteredBooks;
+  return { books, searchedBook, filteredBooks };
 }
 
-export default useFilteredBooks;
+export default useBooks;
