@@ -1,6 +1,8 @@
 import { StyleSheet } from 'react-native';
 import colors from '@constants/colors';
 
+const SEARCH_ICON_SIZE = 50;
+
 export default StyleSheet.create({
   container: {
     alignItems: 'center',
@@ -9,9 +11,9 @@ export default StyleSheet.create({
     justifyContent: 'center'
   },
   searchIcon: {
-    height: 50,
+    height: SEARCH_ICON_SIZE,
     marginBottom: 20,
-    width: 50
+    width: SEARCH_ICON_SIZE
   },
   primaryTitle: {
     fontSize: 15,
