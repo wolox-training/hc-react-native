@@ -1,5 +1,19 @@
+import { Book } from '@interfaces/books';
+
 import { actions } from './actions';
 import booksReducer from './reducer';
+
+const mockedBook: Book[] = [
+  {
+    id: 1,
+    author: 'Stephen King',
+    genre: 'Psychological horror',
+    imageUrl: null,
+    publisher: 'Doubleday',
+    title: 'The Shining',
+    year: '1977'
+  }
+];
 
 const testActions = {
   getBooks: {
@@ -8,11 +22,13 @@ const testActions = {
   },
   getBooksSuccess: {
     type: actions.GET_BOOKS_SUCCESS,
-    target: 'books'
+    target: 'books',
+    payload: mockedBook
   },
   getBooksFailure: {
     type: actions.GET_BOOKS_FAILURE,
-    target: 'books'
+    target: 'books',
+    payload: 'Something went wrong'
   },
   searchBooks: {
     type: actions.SEARCH_BOOKS,
@@ -32,7 +48,7 @@ describe('@@BOOKS/GET_BOOKS', () => {
 
   test('GET_BOOKS_SUCCESS', () => {
     expect(booksReducer(undefined, testActions.getBooksSuccess)).toMatchObject({
-      books: undefined,
+      books: mockedBook,
       booksError: null,
       booksLoading: false
     });
@@ -41,7 +57,7 @@ describe('@@BOOKS/GET_BOOKS', () => {
   test('GET_BOOKS_FAILURE', () => {
     expect(booksReducer(undefined, testActions.getBooksFailure)).toMatchObject({
       books: [],
-      booksError: undefined,
+      booksError: 'Something went wrong',
       booksLoading: false
     });
   });
