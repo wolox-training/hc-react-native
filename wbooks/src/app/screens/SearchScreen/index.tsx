@@ -1,18 +1,13 @@
 import React from 'react';
 import { SafeAreaView } from 'react-native';
-import { useSelector } from 'react-redux';
 import BookList from '@components/BookList';
 import SearchEmpty from '@components/SearchEmpty';
-import useFilteredBooks from '@hooks/useFilteredBooks';
-import { BookState } from '@interfaces/bookState';
-import { RootState } from '@interfaces/rootState';
+import useBooks from '@hooks/useBooks';
 
 import styles from './styles';
 
 function SearchScreen() {
-  const filteredBooks = useFilteredBooks();
-
-  const { searchedBook } = useSelector<RootState, BookState>(state => state.books);
+  const { searchedBook, filteredBooks } = useBooks();
 
   return (
     <SafeAreaView style={styles.container}>

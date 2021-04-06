@@ -4,7 +4,7 @@ import searchPlaceholderIcon from '@assets/ic_search_placeholder.png';
 
 import styles from './styles';
 
-function SearchScreen() {
+function SearchEmpty() {
   return (
     <View style={styles.container}>
       <Image style={styles.searchIcon} source={searchPlaceholderIcon} />
@@ -14,4 +14,4 @@ function SearchScreen() {
   );
 }
 
-export default SearchScreen;
+export default SearchEmpty;
