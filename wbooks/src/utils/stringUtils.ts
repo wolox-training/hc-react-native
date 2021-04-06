@@ -1,5 +1,5 @@
-const BLANK_SPACE = ' ';
-const EMPTY_STRING = '';
+export const BLANK_SPACE = ' ';
+export const EMPTY_STRING = '';
 
 export const getInitials = (str?: string) =>
   str
