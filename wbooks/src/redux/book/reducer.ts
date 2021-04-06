@@ -1,4 +1,4 @@
-import { completeReducer, completeState, createReducer } from 'redux-recompose';
+import { completeReducer, completeState, createReducer, onReadValue } from 'redux-recompose';
 import { BookState } from '@interfaces/bookState';
 
 import { actions } from './actions';
@@ -6,11 +6,17 @@ import { actions } from './actions';
 const initialState: BookState = completeState({
   description: {
     books: []
+  },
+  ignoredTargets: {
+    searchedBook: ''
   }
 });
 
 const reducerDescription = {
-  primaryActions: [actions.GET_BOOKS]
+  primaryActions: [actions.GET_BOOKS],
+  override: {
+    [actions.SEARCH_BOOKS]: onReadValue()
+  }
 };
 
 const completedReducer = completeReducer(reducerDescription);

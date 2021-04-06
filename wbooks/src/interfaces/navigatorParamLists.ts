@@ -6,4 +6,5 @@ export type BottomTabParamList = {
 export type LibraryStackParamList = {
   BookDetails: undefined;
   Library: undefined;
+  Search: undefined;
 };

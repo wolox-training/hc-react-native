@@ -1,18 +1,19 @@
 import React from 'react';
 import { SafeAreaView } from 'react-native';
 import BookList from '@components/BookList';
+import SearchEmpty from '@components/SearchEmpty';
 import useBooks from '@hooks/useBooks';
 
 import styles from './styles';
 
-function Library() {
-  const { books } = useBooks();
+function SearchScreen() {
+  const { searchedBook, filteredBooks } = useBooks();
 
   return (
     <SafeAreaView style={styles.container}>
-      <BookList data={books} />
+      {searchedBook.length >= 1 ? <BookList data={filteredBooks} /> : <SearchEmpty />}
     </SafeAreaView>
   );
 }
 
-export default Library;
+export default SearchScreen;

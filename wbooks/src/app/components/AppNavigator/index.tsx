@@ -7,25 +7,31 @@ import SCREENS, { SCREEN_TITLES } from '@constants/screens';
 import { BottomTabParamList, LibraryStackParamList } from '@interfaces/navigatorParamLists';
 import BookDetails from '@screens/BookDetails';
 import Library from '@screens/Library';
+import SearchScreen from '@screens/SearchScreen';
 import WishList from '@screens/WishList';
 
-import customHeader from './config';
+import { mainHeader, libraryHeader, searchHeader } from './config';
 
 const TabNavigator = createBottomTabNavigator<BottomTabParamList>();
 const LibraryStackNavigator = createStackNavigator<LibraryStackParamList>();
 
 function LibraryStackScreen() {
   return (
-    <LibraryStackNavigator.Navigator screenOptions={customHeader as object}>
+    <LibraryStackNavigator.Navigator screenOptions={mainHeader as object}>
       <LibraryStackNavigator.Screen
         name={SCREENS.LIBRARY}
         component={Library}
-        options={{ title: SCREEN_TITLES.LIBRARY }}
+        options={libraryHeader as object}
       />
       <LibraryStackNavigator.Screen
         name={SCREENS.BOOK_DETAILS}
         component={BookDetails}
         options={{ title: SCREEN_TITLES.BOOK_DETAILS }}
+      />
+      <LibraryStackNavigator.Screen
+        name={SCREENS.SEARCH}
+        component={SearchScreen}
+        options={searchHeader as object}
       />
     </LibraryStackNavigator.Navigator>
   );

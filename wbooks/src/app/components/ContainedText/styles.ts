@@ -4,6 +4,11 @@ import colors from '@constants/colors';
 export default StyleSheet.create({
   container: {
     backgroundColor: colors.polar,
-    flex: 1
+    paddingVertical: 50
+  },
+  mainText: {
+    fontSize: 30,
+    fontWeight: '700',
+    textAlign: 'center'
   }
 });
